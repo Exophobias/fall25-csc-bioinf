@@ -1,0 +1,1 @@
+UVic Fall 2025 - CSC427 (Bioinformatics)
