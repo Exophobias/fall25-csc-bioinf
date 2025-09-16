@@ -142,7 +142,14 @@ def main():
         })
         
         # Run Codon version
-        codon_cmd = f"codon run -release code/main.codon data/{dataset}"
+        # Check if codon is in PATH, otherwise use the expected GitHub Actions location
+        codon_path = "codon"
+        if os.environ.get('GITHUB_ACTIONS'):
+            potential_codon = os.path.expanduser("~/.codon/bin/codon")
+            if os.path.exists(potential_codon):
+                codon_path = potential_codon
+        
+        codon_cmd = f"{codon_path} run -release code/main.codon data/{dataset}"
         codon_time = run_command(codon_cmd, base_dir)
         
         # Save Codon results
