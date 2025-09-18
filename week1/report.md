@@ -1,5 +1,22 @@
 # Deliverable 1
 
+## Summary
+This project converted a Python-based genome assembler to Codon and evaluated both implementations on 4 datasets. While both versions successfully assembled genomes and calculated N50 values, **the original repository is not reproducible as-is**. 
+
+The calculated N50 values differ from those reported in the original repository's table:
+- **data1**: Our N50: 9990 vs Original: 9118.8
+- **data2**: Our N50: 9992 vs Original: 9129.2  
+- **data3**: Our N50: 9824 vs Original: 7859.2
+- **data4**: Our N50: 159255 vs Original: 55757.8
+
+These discrepancies likely stem from:
+1. The original results table showing NGA50 (which requires a reference genome) rather than N50
+2. Missing reference genomes needed to reproduce the exact metrics
+3. Possible differences in post-processing or filtering steps not included in the public repository
+
+Despite these differences, the Codon conversion was successful, producing identical N50 values to the Python version while achieving 40-50% performance improvements.
+
+
 ## Repository Setup
 Model Used: `Claude Opus 4`
 ---
@@ -39,7 +56,7 @@ The original Python implementation from https://github.com/zhongyuchen/genome-as
 - **data4**: 20 contigs, largest: 173867bp, N50: 159255bp
 
 ## Codon Conversion & Runs
-Model Used: `Claude Opus 4`
+Model Used: `Claude Opus 4` 
 ---
 
 ### Codon Conversion
